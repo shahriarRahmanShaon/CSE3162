@@ -133,28 +133,24 @@
         android:id="@+id/celciusTemp"
         android:layout_width="111dp"
         android:layout_height="72dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="8dp"
         android:text="33 °C"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/iv_sunrise"
         app:layout_constraintEnd_toStartOf="@+id/farenTemp"
-        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintHorizontal_bias="0.055"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cityAndName"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/cityAndName" />
 
     <TextView
         android:id="@+id/farenTemp"
         android:layout_width="113dp"
         android:layout_height="69dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="28dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="44dp"
         android:text="33 °F"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/iv_sunset"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cityAndName"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/cityAndName" />
 
     <TextView
         android:id="@+id/city"
@@ -165,5 +161,28 @@
         app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lat" />
+
+    <TextView
+        android:id="@+id/adrota"
+        android:layout_width="119dp"
+        android:layout_height="21dp"
+        android:text="আদ্রতা"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/cloud"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.027"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/celciusTemp" />
+
+    <TextView
+        android:id="@+id/cloud"
+        android:layout_width="156dp"
+        android:layout_height="26dp"
+        android:layout_marginBottom="8dp"
+        android:text="Broken Cloud"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/iv_sunrise"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

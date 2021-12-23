@@ -31,6 +31,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var tvSunset: TextView
     lateinit var tvSunrise: TextView
     lateinit var city: TextView
+    lateinit var adrota: TextView
+    lateinit var cloud: TextView
 
     // initilizing library and frameworks
     private lateinit var requestPermissionLauncher: ActivityResultLauncher<String>
@@ -52,6 +54,8 @@ class MainActivity : AppCompatActivity() {
         tvSunrise = findViewById(R.id.tv_sunrise_time)
         tvSunset = findViewById(R.id.tv_sunset_time)
         city = findViewById(R.id.city)
+        adrota = findViewById(R.id.adrota)
+        cloud = findViewById(R.id.cloud)
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
@@ -86,6 +90,7 @@ class MainActivity : AppCompatActivity() {
                             lat.setText("Latitude" + "  " + latFromFused.toString())
                             lon.setText("Longitude" + "  " +lonFromFused.toString())
                             city.setText(cityName)
+
                         }
 
 
@@ -156,6 +161,8 @@ class MainActivity : AppCompatActivity() {
                         city_date.setText(result.data[0].obTime)
                         tvSunset.setText(result.data[0].sunset)
                         tvSunrise.setText(result.data[0].sunrise)
+                        adrota.setText("আদ্রতা"+"      "+result.data[0].rh.toString())
+                        cloud.setText(result.data[0].weather.description)
                     }
                 }
             }
