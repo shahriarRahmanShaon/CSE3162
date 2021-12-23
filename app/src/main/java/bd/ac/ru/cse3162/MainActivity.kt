@@ -66,6 +66,9 @@ class MainActivity : AppCompatActivity() {
                         var lat = location!!.latitude  // we're sure we gonna get a response, so used !! but not recommended
                         var lon = location!!.longitude
 
+                        Log.d("latitude", lat.toString())
+                        Log.d("latitude", lon.toString())
+
 
 
                     }
