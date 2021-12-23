@@ -2,10 +2,16 @@ package bd.ac.ru.cse3162
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import com.google.android.gms.location.FusedLocationProviderClient
+import okhttp3.OkHttpClient
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 
 class MainActivity : AppCompatActivity() {
+    // Ui component declaration
     lateinit var search: Button
     lateinit var lat: TextView
     lateinit var lon: TextView
@@ -13,6 +19,11 @@ class MainActivity : AppCompatActivity() {
     lateinit var city_date: TextView
     lateinit var celciousView: TextView
     lateinit var farenhiteView: TextView
+    
+    // initilizing library and frameworks
+    private lateinit var requestPermissionLauncher: ActivityResultLauncher<String>
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
+    var client = OkHttpClient()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +39,9 @@ class MainActivity : AppCompatActivity() {
         farenhiteView = findViewById(R.id.farenTemp)
 
         // initializing button press for Location Button
+        search.setOnClickListener{
 
+        }
 
 
     }
