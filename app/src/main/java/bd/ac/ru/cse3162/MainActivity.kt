@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var farenhiteView: TextView
     lateinit var tvSunset: TextView
     lateinit var tvSunrise: TextView
+    lateinit var city: TextView
 
     // initilizing library and frameworks
     private lateinit var requestPermissionLauncher: ActivityResultLauncher<String>
@@ -50,6 +51,8 @@ class MainActivity : AppCompatActivity() {
         farenhiteView = findViewById(R.id.farenTemp)
         tvSunrise = findViewById(R.id.tv_sunrise_time)
         tvSunset = findViewById(R.id.tv_sunset_time)
+        city = findViewById(R.id.city)
+
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
         requestPermissionLauncher = registerForActivityResult( ActivityResultContracts.RequestPermission())
@@ -73,6 +76,7 @@ class MainActivity : AppCompatActivity() {
 
                         var latFromFused = location!!.latitude  // we're sure we gonna get a response, so used !! but not recommended
                         var lonFromFused = location!!.longitude
+                        var cityName = getAddress(latFromFused, lonFromFused)
 
                         Log.d("latitude", latFromFused.toString())
                         Log.d("latitude", lonFromFused.toString())
@@ -81,6 +85,7 @@ class MainActivity : AppCompatActivity() {
                         runOnUiThread {
                             lat.setText("Latitude" + "  " + latFromFused.toString())
                             lon.setText("Longitude" + "  " +lonFromFused.toString())
+                            city.setText(cityName)
                         }
 
 
@@ -103,12 +108,14 @@ class MainActivity : AppCompatActivity() {
 
 
 
-         fun getAddress(lat: Double, lng: Double): String {
-            // Function to get location city name using geocoder
-            var geocoder = Geocoder(this) // initializing geocoder for the context
-            var list = geocoder.getFromLocation(lat, lng, 1) // getting location using lat long
-            return list[0].locality  // as it returns a list object we fetch only the local name
-        }
+
+    }
+
+    private fun getAddress(lat: Double, lng: Double): String {
+        // Function to get location city name using geocoder
+        var geocoder = Geocoder(this) // initializing geocoder for the context
+        var list = geocoder.getFromLocation(lat, lng, 1) // getting location using lat long
+        return list[0].locality  // as it returns a list object we fetch only the local name
     }
 
     private fun getWeather(lat: String, lon: String) {

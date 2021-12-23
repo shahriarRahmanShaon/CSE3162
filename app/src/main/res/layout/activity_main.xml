@@ -112,11 +112,11 @@
         android:id="@+id/weatherBtn"
         android:layout_width="389dp"
         android:layout_height="46dp"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="4dp"
         android:text="View Weather"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lat" />
+        app:layout_constraintTop_toBottomOf="@+id/city" />
 
     <TextView
         android:id="@+id/cityAndName"
@@ -155,5 +155,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cityAndName"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/city"
+        android:layout_width="165dp"
+        android:layout_height="28dp"
+        android:text="Dhaka"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lat" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
