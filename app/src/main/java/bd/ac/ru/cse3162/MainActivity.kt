@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         farenhiteView = findViewById(R.id.farenTemp)
 
         // initializing button press for Location Button
-        
+
 
 
     }
