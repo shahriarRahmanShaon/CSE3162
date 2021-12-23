@@ -131,10 +131,11 @@
 
     <TextView
         android:id="@+id/celciusTemp"
-        android:layout_width="81dp"
-        android:layout_height="78dp"
+        android:layout_width="111dp"
+        android:layout_height="72dp"
         android:layout_marginTop="40dp"
         android:text="33 °C"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/iv_sunrise"
         app:layout_constraintEnd_toStartOf="@+id/farenTemp"
         app:layout_constraintHorizontal_bias="0.049"
@@ -144,11 +145,12 @@
 
     <TextView
         android:id="@+id/farenTemp"
-        android:layout_width="84dp"
-        android:layout_height="79dp"
+        android:layout_width="113dp"
+        android:layout_height="69dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="28dp"
         android:text="33 °F"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/iv_sunset"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cityAndName"

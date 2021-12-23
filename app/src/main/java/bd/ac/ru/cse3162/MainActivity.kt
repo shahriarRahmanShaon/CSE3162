@@ -28,6 +28,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var city_date: TextView
     lateinit var celciousView: TextView
     lateinit var farenhiteView: TextView
+    lateinit var tvSunset: TextView
+    lateinit var tvSunrise: TextView
 
     // initilizing library and frameworks
     private lateinit var requestPermissionLauncher: ActivityResultLauncher<String>
@@ -46,6 +48,8 @@ class MainActivity : AppCompatActivity() {
         city_date = findViewById(R.id.cityAndName)
         celciousView = findViewById(R.id.celciusTemp)
         farenhiteView = findViewById(R.id.farenTemp)
+        tvSunrise = findViewById(R.id.tv_sunrise_time)
+        tvSunset = findViewById(R.id.tv_sunset_time)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
         requestPermissionLauncher = registerForActivityResult( ActivityResultContracts.RequestPermission())
@@ -75,8 +79,8 @@ class MainActivity : AppCompatActivity() {
                         var hold= getWeather(lat = latFromFused.toString(), lon = lonFromFused.toString())
 
                         runOnUiThread {
-                            lat.setText(latFromFused.toString())
-                            lon.setText(lonFromFused.toString())
+                            lat.setText("Latitude" + "  " + latFromFused.toString())
+                            lon.setText("Longitude" + "  " +lonFromFused.toString())
                         }
 
 
@@ -136,12 +140,15 @@ class MainActivity : AppCompatActivity() {
                     var result =  gson.fromJson(getString, Welcome::class.java) // map the response into welcome.kt data class
 
                     var temp =  result.data[0].temp.toString()
-                    Log.d("response", temp)
+                    Log.d("response", result.data[0].sunrise)
                     var celciousToFarenhite = result.data[0].temp + 273.5
 
                     runOnUiThread {
-                        celciousView.setText(temp)
-                        farenhiteView.setText(celciousToFarenhite.toString())
+                        celciousView.setText(temp +" " +"°C")
+                        farenhiteView.setText(celciousToFarenhite.toString() + " " +"°F")
+                        city_date.setText(result.data[0].obTime)
+                        tvSunset.setText(result.data[0].sunset)
+                        tvSunrise.setText(result.data[0].sunrise)
                     }
                 }
             }
